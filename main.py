@@ -1,19 +1,31 @@
 import base64
 import pyqrcode
+from pyzbar.pyzbar import decode, ZBarSymbol
+
 
 from PIL import Image
 from validator import EValidator
 
 
 def main():
-    # rut_personal = 
-    rut_empresa = "76.745.604-2"
+    # --- Input ---
 
+    # RUT_PERSONAL = 
+    RUT_EMPRESA = "76.745.604-2"
+
+    # Convert .jpeg to .png
     img = Image.open(r"image.jpeg")
     img.save(r'image.png')
 
-    # qr = pyqrcode.create("image.png")
+    # Create qr code
+    # qr = pyqrcode.create("QR_Validator")
+    # qr.png("qr.png", scale=3, quiet_zone=4)
     # image_as_str = qr.png_as_base64_str(scale=5)
+
+    # Extract qr code from img
+    # qr = qrtools.QR()
+    qr = decode(Image.open("image.png"), symbols=[ZBarSymbol.QRCODE])
+    print(qr)
 
     # Load image .png .jpg or .jpeg
     # with open("image.jpeg", "rb") as image_file:
