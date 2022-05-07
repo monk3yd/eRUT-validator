@@ -1,6 +1,4 @@
 import base64
-
-from PIL import Image
 from validator import EValidator
 
 
@@ -17,12 +15,10 @@ def main():
     # --- Blackbox ---
     validator = EValidator(base64img)
 
-    
     # Load image .png .jpg or .jpeg
     # with open("image.jpeg", "rb") as image_file:
     #     # Convert image to base64img string
     #     encoded_image = base64.b64encode(image_file.read())
-
 
 
 if __name__ == "__main__":
