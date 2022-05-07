@@ -1,3 +1,6 @@
+import pyqrcode
+
+from pyzbar.pyzbar import decode, ZBarSymbol
 from pprint import pprint
 
 
@@ -6,7 +9,6 @@ class EValidator():
         pprint(base64img)
         pprint(type(base64img))
 
-
         # Extract qr code from img
-        # qr = decode(Image.open("image.png"), symbols=[ZBarSymbol.QRCODE])
-        # print(qr)  # Output list
+        qr = decode(Image.open("image.png"), symbols=[ZBarSymbol.QRCODE])
+        print(qr)  # Output list

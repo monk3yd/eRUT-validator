@@ -1,6 +1,4 @@
 import base64
-import pyqrcode
-from pyzbar.pyzbar import decode, ZBarSymbol
 
 from PIL import Image
 from validator import EValidator
@@ -17,7 +15,7 @@ def main():
     base64img = base64.b64encode(open("image.png", "rb").read())
 
     # --- Blackbox ---
-    validator = EValidator(str(base64img))
+    validator = EValidator(base64img)
 
     
     # Load image .png .jpg or .jpeg
