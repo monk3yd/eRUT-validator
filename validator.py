@@ -1,5 +1,4 @@
 import base64
-import pyqrcode
 import cv2 as cv
 
 from PIL import Image
