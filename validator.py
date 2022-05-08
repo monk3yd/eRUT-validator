@@ -1,16 +1,40 @@
+import base64
 import pyqrcode
+import cv2 as cv
 
 from PIL import Image
-from pyzbar.pyzbar import decode, ZBarSymbol
+from pyzbar import pyzbar
 from pprint import pprint
 
 
 class EValidator:
-    def __init__(self, base64img: bytes or str) -> bool:
-        # Extract qr code from img
-        qr = decode(Image.open("image.png"), symbols=[ZBarSymbol.QRCODE])
-        print(qr)  # Output list
-        # [Decoded(data=b'{"rut":"76745604","dv":"2","serie":"201903175410","razonSocial":"LITRO DE LUZ CHILE SPA","direccion":"ROLANDO FRODDEN 1368 LA FLORIDA"}', type='QRCODE', rect=Rect(left=364, top=942, width=145, height=146), polygon=[Point(x=364, y=942), Point(x=365, y=1087), Point(x=509, y=1088), Point(x=509, y=943)], quality=1, orientation='UP')]
+    def __init__(self, base64img: bytes or str, rut_empresa: str) -> bool:
 
-        BASE_URL =
-        API_KEY =
+        # # Create .bin file from encoded byte string
+        with open("encoded/tmp_image.bin", "wb") as file:
+            file.write(base64img)
+
+        # Decode base64img into png
+        with open("new_image.png", "wb") as png_image:
+            png_image.write(base64.b64decode(base64img))
+
+        # Load converted png img
+        filename = "new_image.png"
+        image = cv.imread(filename)
+
+        # Decode embedded qr
+        qr_data = pyzbar.decode(
+            image,
+            symbols=[pyzbar.ZBarSymbol.QRCODE]
+        )
+
+        print(qr_data)
+
+        # TODO - Reverse engineer API for missing data that need validation
+        # BASE_URL
+        # API_KEY
+
+
+# https://stackoverflow.com/questions/27233351/how-to-decode-a-qr-code-image-in-preferably-pure-python
+# https://stackoverflow.com/questions/20778072/sniffing-an-android-app-to-find-api-url
+# https://stackoverflow.com/questions/9867410/barcode-scanning-in-android-emulator

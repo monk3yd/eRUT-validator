@@ -3,22 +3,16 @@ from validator import EValidator
 
 
 def main():
-    # Convert .jpeg into .png image and save
-    # img = Image.open(r"image.jpeg")
-    # img.save(r'image.png')
-
-    # --- Input ---
-    # RUT_PERSONAL = 
+    # Input data to be validated
+    # RUT_PERSONAL
     RUT_EMPRESA = "76.745.604-2"
-    base64img = base64.b64encode(open("image.png", "rb").read())
 
-    # --- Blackbox ---
-    validator = EValidator(base64img)
+    # Testing --- Create base64 encoded image from png file
+    with open("test/image.png", "rb") as raw_image:
+        base64img = base64.b64encode(raw_image.read())
 
-    # Load image .png .jpg or .jpeg
-    # with open("image.jpeg", "rb") as image_file:
-    #     # Convert image to base64img string
-    #     encoded_image = base64.b64encode(image_file.read())
+    # Blackbox --- Validate data
+    validator = EValidator(base64img, RUT_EMPRESA)
 
 
 if __name__ == "__main__":
