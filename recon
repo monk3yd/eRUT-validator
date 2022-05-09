@@ -1,0 +1,142 @@
+<!-- 
+SEARCH: HTTPS 
+LOCATION: ../deguard-erut-apk/src/package_1/org/rolunicotributariodigital/classes/Services.java: -->
+<!-- DECODED URL -->
+private final String WS_AUTH_URL = "https://ws1.sii.cl/WSCOREAUTENTICA01/coreautentica01service";
+private final String WS_RUT_DETAILS_URL = "https://ws1.sii.cl/WSCREP/crepservice";
+private final String WS_VALIDATE_RUT_URL = "https://ws1.sii.cl/WSCREP/crepwsservice";
+private final String WS_RUT_LIST_URL = "https://ws1.sii.cl/WSCREP/crepservice";
+
+  throws NetworkErrorException
+    paramString = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\"><soapenv:Header/><soapenv:Body><ws:visualizacionCedulaSmp><serie>$serie$</serie></ws:visualizacionCedulaSmp></soapenv:Body></soapenv:Envelope>".replace("$serie$", paramString);
+    new SoapClient(this, "https://ws1.sii.cl/WSCREP/crepservice").execute(new String[] { paramString, token });
+
+  throws NetworkErrorException
+    paramString1 = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.coreautentica01.oia.sdi.sii.cl/\"><soapenv:Header/><soapenv:Body><ws:createOrUpdate><inputDataTo><clave>$password$</clave><dv>$dv$</dv><ip>?</ip><rut>$numero$</rut></inputDataTo></ws:createOrUpdate></soapenv:Body></soapenv:Envelope>".replace("$password$", Entities.escape(paramString3)).replace("$dv$", str).replace("$numero$", paramString1);
+    new SoapClient(this, "https://ws1.sii.cl/WSCOREAUTENTICA01/coreautentica01service").execute(new String[] { paramString1 });
+
+  throws NetworkErrorException
+
+  throws NetworkErrorException
+    paramUserModel = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\"><soapenv:Header/><soapenv:Body><ws:visualizacionContriAllSmp><rutUsuario>$numero$</rutUsuario><dvUsuario>$dv$</dvUsuario><serie>$serie$</serie><lmt>$limit$</lmt></ws:visualizacionContriAllSmp></soapenv:Body></soapenv:Envelope>".replace("$numero$", numero).replace("$dv$", mResource).replace("$serie$", "0").replace("$limit$", "100");
+
+    new SoapClient(this, "https://ws1.sii.cl/WSCREP/crepservice").execute(new String[] { paramUserModel, paramString });
+  throws NetworkErrorException
+      localObject1 = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crepws.diipt.sdi.sii.cl/\"><soapenv:Header/><soapenv:Body><ws:verificacionCedulaSmp><rut>$numero$</rut><dv>$dv$</dv><serie>$serie$</serie></ws:verificacionCedulaSmp></soapenv:Body></soapenv:Envelope>".replace("$numero$", (CharSequence)localObject1);
+      localObject1 = new SoapClient(this, "https://ws1.sii.cl/WSCREP/crepwsservice");
+
+<!-- 
+SEARCH: HTTP 
+LOCATION: ../deguard-erut-apk/src/package_1/org/rolunicotributariodigital/classes/Services.java:
+-->
+<!-- DECODED XML -->
+private final String WS_AUTH_XML = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.coreautentica01.oia.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <ws:createOrUpdate>
+                <inputDataTo>
+                    <clave>$password$</clave>
+                    <dv>$dv$</dv>
+                    <ip>?</ip>
+                    <rut>$numero$</rut>
+                </inputDataTo>
+            </ws:createOrUpdate>
+        </soapenv:Body>
+    </soapenv:Envelope>
+";
+
+private final String WS_RUT_DETAILS_XML = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+        <ws:visualizacionCedulaSmp>
+            <serie>$serie$</serie>
+            </ws:visualizacionCedulaSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+";
+
+private final String WS_RUT_LIST_XML = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <ws:visualizacionContriAllSmp>
+                <rutUsuario>$numero$</rutUsuario>
+                <dvUsuario>$dv$</dvUsuario>
+                <serie>$serie$</serie>
+                <lmt>$limit$</lmt>
+            </ws:visualizacionContriAllSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+";
+
+private final String WS_VALIDATE_RUT_URL = "https://ws1.sii.cl/WSCREP/crepwsservice";
+private final String WS_VALIDATE_RUT_XML = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crepws.diipt.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <ws:verificacionCedulaSmp>
+                <rut>$numero$</rut>
+                <dv>$dv$</dv>
+                <serie>$serie$</serie>
+            </ws:verificacionCedulaSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+";
+
+paramString = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\">
+    <soapenv:Header/>
+        <soapenv:Body>
+            <ws:visualizacionCedulaSmp>
+            <serie>$serie$</serie>
+            </ws:visualizacionCedulaSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+".replace("$serie$", paramString);
+
+paramString1 = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.coreautentica01.oia.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <ws:createOrUpdate>
+                <inputDataTo>
+                    <clave>$password$</clave>
+                    <dv>$dv$</dv>
+                    <ip>?</ip>
+                    <rut>$numero$</rut>
+                </inputDataTo>
+            </ws:createOrUpdate>
+        </soapenv:Body>
+    </soapenv:Envelope>
+".replace("$password$", Entities.escape(paramString3)).replace("$dv$", str).replace("$numero$", paramString1);
+
+paramUserModel = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crep.diipt.sdi.sii.cl/\">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <ws:visualizacionContriAllSmp>
+                <rutUsuario>$numero$</rutUsuario>
+                <dvUsuario>$dv$</dvUsuario>
+                <serie>$serie$</serie>
+                <lmt>$limit$</lmt>
+            </ws:visualizacionContriAllSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+".replace("$numero$", numero).replace("$dv$", mResource).replace("$serie$", "0").replace("$limit$", "100");
+
+localObject1 = "
+    <soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.crepws.diipt.sdi.sii.cl/\">
+    <soapenv:Header/>
+        <soapenv:Body>
+            <ws:verificacionCedulaSmp>
+                <rut>$numero$</rut>
+                <dv>$dv$</dv>
+                <serie>$serie$</serie>
+            </ws:verificacionCedulaSmp>
+        </soapenv:Body>
+    </soapenv:Envelope>
+".replace("$numero$", (CharSequence)localObject1);
+<!-- END DECODED XML -->
+
