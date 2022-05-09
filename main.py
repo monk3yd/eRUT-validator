@@ -1,11 +1,12 @@
 import base64
+
 from validator import EValidator
 
 
 def main():
     # Input data to be validated
     RUT_PERSONAL = "15.838.946-0"
-    RUT_EMPRESA = "77.745.604-2"
+    RUT_EMPRESA = "76.745.604-2"
 
     # Testing --- Create base64 encoded image from png file
     with open("test/image.png", "rb") as raw_image:
@@ -13,7 +14,9 @@ def main():
 
     # Blackbox --- Validate data
     validator = EValidator(base64img, RUT_PERSONAL, RUT_EMPRESA)
-    print(validator)
+    response = validator.check()
+    print(response)
+
 
 if __name__ == "__main__":
     main()
